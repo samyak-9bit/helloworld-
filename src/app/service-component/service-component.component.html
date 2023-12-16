@@ -1,4 +1,21 @@
+<!-- Directives -->
+
+
 <button (click)="getitem()">Click to see Items</button>
 <ul>
-    <li *ngFor = "let i of item">{{i}}</li>
+    <li *ngFor="let i of item" [ngStyle]="{'font-family': 'Lucida Handwriting'}">{{i}}</li>
 </ul>
+  
+
+<button (click)="getNumber()">Click to see Even Numbers</button>
+<ul *ngFor="let i of num">
+    <li *ngIf="i%2 === 0" [ngClass]="{'fclass':i%4===0, 'sclass':i%4!=0}">
+       {{i}}
+    </li>
+</ul>
+  
+<ul *ngFor="let i of num" [ngSwitch]="i === 4">
+    <li *ngSwitchCase="true">{{i}} : Matched</li>
+    <li *ngSwitchDefault>Not Matched</li>
+  </ul>
+  
